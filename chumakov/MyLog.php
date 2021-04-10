@@ -20,9 +20,18 @@ class MyLog extends LogAbstract implements LogInterface
         $dateLog = date('d.m.Y_H.i.s.v');
         foreach ($this->log as $v)
         {
-            echo $v . "\n\r";
+            echo $v . "\r\n";
             file_put_contents($_SERVER['DOCUMENT_ROOT'] . "log\\$dateLog.log", $v . PHP_EOL, FILE_APPEND);
         }
-        echo "\n\rLog: $dateLog";
+    }
+
+    public static function clearArray()
+    {
+        MyLog::Instance()->log = array();
+    }
+
+    public static function getLog()
+    {
+        return MyLog::Instance()->log;
     }
 }

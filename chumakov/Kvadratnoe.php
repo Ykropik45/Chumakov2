@@ -29,10 +29,6 @@ Class Kvadratnoe extends Lineynoe implements EquationInterface
         {
             return $this->x =  array(-$b / (2 * $a));
         }
-        if($discriminant < 0)
-        {
-            throw new ChumakovException('The equation has no solutions');
-        }
         throw new ChumakovException('No roots');
 	}
 }
